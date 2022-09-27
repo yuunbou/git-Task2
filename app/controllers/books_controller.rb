@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.all
-    @book = Book.new(book_params)
+    @book = Book.new
   end
   
   def create
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to '/books'
     flash[:notice] = "successfully"  
-    end
+  end
    
   private
   def book_params

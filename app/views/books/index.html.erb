@@ -4,7 +4,7 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,8 +13,8 @@
         <tb><%= book.title %></tb>
         <tb><%= book.body %></tb>
         <tb><%= link_to "Show", book_path(book.id) %></tb>
-        <tb><%= link_to "Edit", edit_book_path(@book.id) %></tb>
-        <tb><%= link_to "Destroy", book_path(@book.id), method: :delete, "date-congirm" => "本当に削除しますか？" %></tb>
+        <tb><%= link_to "Edit", edit_book_path(book) %></tb>
+        <tb><%= link_to "Destroy", @book, method: :delete, "date-congirm" => "本当に削除しますか？" %></tb>
       </tr>
     <% end %>
   </tbody>
@@ -30,7 +30,7 @@
 </ul>
 <% end %>
 
-<% form_with model: @book, url: '/books', method: :post do |f| %>
+<%= form_with model: @book, url: '/books', method: :post do |f| %>
 
  <label>title</label>
   <%= f.text_field :title %>
